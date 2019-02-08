@@ -78,10 +78,8 @@ class TabCard {
 //as a parameter
 
 */
-let tabs = document.querySelectorAll('.tabs', '.tab').forEach( tab => new TabLink(tab));
+let tabs = document.querySelectorAll('.tab').forEach( tab => new TabLink(tab));
 
-
-// let tabs = document.querySelectorAll('.tabs .tab').forEach(tab => new TabLink(tab));
 
 
 // let links = document.querySelectorAll('.tab').forEach( link => new TabLink(link));
