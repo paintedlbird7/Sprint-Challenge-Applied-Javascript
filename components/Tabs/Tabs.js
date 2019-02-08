@@ -11,24 +11,26 @@ class TabLink {
     // Check to see if this.tabData is equal to 'all'
     if(this.tabData === 'all'){
       // If `all` is true, select all cards regardless of their data attribute values
-      this.cards = document.querySelector('all');
+      this.cards = document.querySelector('.card');
     } else {
-      // else if `all` is false, only select the cards with matching this.tabData values
-      this.cards = document.querySelectorAll(this.tabData);
+      // else if `all` is false, only select the cards with matching this.tabData values       
+      //this.item = document.querySelector(`.tabs-item[data-tab="${this.data}"]`);
+      this.cards = document.querySelectorAll(`.card[data-tab="${this.tabData}"]`);
     }
 
      // Map over the newly converted NodeList we just created in our if statement above. Convert each this.cards 
      //element into a new instance of the TabCard class. ?Pass in a card object to the TabCard class. ???
-    this.cards = Array.from(this.cards).map(TabCard = new TabCard);
+    this.cards = Array.from(this.cards).map(card => new TabCard(card));
 
     // Add a click event that invokes this.selectTab
     this.tabElement.addEventListener('click', () => {
-      this.select();
+      this.selectTab();
     });
   };
 
-  selectTab(){
 
+  
+  selectTab(){
     // Select all elements with the .tab class on them
     const tabs = document.querySelectorAll('.tab');
     
@@ -69,10 +71,17 @@ class TabCard {
 
 - Select all classes named ".tab" and assign that value to the tabs variable
 
-- With your selection in place, now chain a .forEach() method onto the tabs variable to iterate over the DOM NodeList
+- With your selection in place, now chain a .forEach() method onto the tabs variable to iterate over 
+//the DOM NodeList
 
-- In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
+- In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab 
+//as a parameter
 
 */
-let tabs = document.querySelectorAll(('.tab').forEach( tab => new TabLink(tab)));
+let tabs = document.querySelectorAll('.tabs', '.tab').forEach( tab => new TabLink(tab));
+
+
+// let tabs = document.querySelectorAll('.tabs .tab').forEach(tab => new TabLink(tab));
+
+
 // let links = document.querySelectorAll('.tab').forEach( link => new TabLink(link));
